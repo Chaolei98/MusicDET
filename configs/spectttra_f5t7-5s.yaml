@@ -1,0 +1,93 @@
+experiment_name: "spectttra_gamma-t=5"
+
+logger:
+  project: "sonics"
+  primary_metric: "f1"
+
+environment:
+  seed: 42
+  mixed_precision: true
+  num_workers: 8
+
+dataset:
+  train_dataframe: "train.csv"
+  valid_dataframe: "valid.csv"
+  test_dataframe: "test.csv"
+
+audio:
+  sample_rate: 16000
+  max_time: 5
+  random_sampling: true
+  normalize: true
+  skip_time: false
+
+melspec:
+  n_fft: 2048
+  hop_length: 512
+  win_length: 2048
+  n_mels: 128
+  f_min: 20
+  f_max: 8000
+  power: 2
+  top_db: 80
+  norm: "mean_std"
+
+model:
+  name: "SpecTTTra"
+  input_shape: [128, 128]
+  embed_dim: 384
+  num_heads: 6
+  num_layers: 12
+  t_clip: 7
+  f_clip: 5
+  pre_norm: true
+  pe_learnable: true
+  pos_drop_rate: 0.1
+  attn_drop_rate: 0.1
+  proj_drop_rate: 0.0
+  mlp_ratio: 2.67
+  use_init_weights: false
+  resume: null
+
+loss:
+  name: "BCEWithLogitsLoss"
+  label_smoothing: 0.02
+
+num_classes: 2
+
+training:
+  batch_size: 256
+  epochs: 50
+
+validation:
+  batch_size: 256
+    
+optimizer:
+  opt: "adamw"
+  opt_eps: 0.00000001
+  opt_betas: [0.9, 0.999]
+  momentum: 0.9
+  weight_decay: 0.05
+  grad_accum_steps: 1
+  clip_grad_norm: 5.0
+
+
+scheduler:
+  sched: "cosine"
+  lr: 0.0008
+  lr_base: 0.001
+  lr_base_size: 256
+  lr_base_scale: "linear"
+  warmup_lr: 0.000001
+  min_lr: 0.0
+  warmup_epochs: 5
+  decay_rate: 0.1
+
+augment:
+  mixup_alpha: 2.5
+  mixup_p: 0.5
+  n_time_masks: 2
+  time_mask_param: 8
+  n_freq_masks: 1
+  freq_mask_param: 8
+  time_freq_mask_p: 0.5
