@@ -26,6 +26,29 @@ cd MusicDET
 pip install -r requirements.txt
 ```
 
+## Project Structure
+
+Only the dataset, label, and pretrained layout is shown below:
+
+```text
+MusicDET/
+├── datasets/
+│   ├── fakemusiccaps/
+│   │   └── all_audio_wav/
+│   ├── sonics/
+│   │   ├── real_songs_wav/
+│   │   └── fake_songs_wav/
+├── label/
+│   ├── fakemusiccaps/
+│   └── sonics/
+│       ├── dev/
+│       ├── test/
+│       └── train/
+└── pretrained/
+    ├── xlsr/
+    └── mert/
+```
+
 ## Label
 
 Some training CSV files are too large to keep directly in this repository. They are provided separately through [Google Drive](https://drive.google.com/file/d/1CnC8G6Kp6WfF3XcX0tJI6F6RrfAAY7uI/view?usp=drive_link).
@@ -69,29 +92,6 @@ python preprocess_audio.py \
 python preprocess_audio.py \
   --in_root /path/to/sonics/fake_songs \
   --out_root datasets/sonics/fake_songs_wav
-```
-
-## Project Structure
-
-Only the dataset, label, and pretrained layout is shown below:
-
-```text
-MusicDET/
-├── datasets/
-│   ├── fakemusiccaps/
-│   │   └── all_audio_wav/
-│   ├── sonics/
-│   │   ├── real_songs_wav/
-│   │   └── fake_songs_wav/
-├── label/
-│   ├── fakemusiccaps/
-│   └── sonics/
-│       ├── dev/
-│       ├── test/
-│       └── train/
-└── pretrained/
-    ├── xlsr/
-    └── mert/
 ```
 
 ## Pretrained Models
