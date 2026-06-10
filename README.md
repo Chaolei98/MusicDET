@@ -26,6 +26,10 @@ cd MusicDET
 pip install -r requirements.txt
 ```
 
+## Label
+
+Some training CSV files are too large to keep directly in this repository. They are provided separately through [Google Drive](https://drive.google.com/file/d/1CnC8G6Kp6WfF3XcX0tJI6F6RrfAAY7uI/view?usp=drive_link).
+
 ## Dataset Preparation
 
 - Download [FakeMusicCaps](https://zenodo.org/records/15063698) and place the audio files under:
@@ -69,7 +73,7 @@ python preprocess_audio.py \
 
 ## Project Structure
 
-Only the dataset and pretrained layout is shown below:
+Only the dataset, label, and pretrained layout is shown below:
 
 ```text
 MusicDET/
@@ -79,6 +83,12 @@ MusicDET/
 │   ├── sonics/
 │   │   ├── real_songs_wav/
 │   │   └── fake_songs_wav/
+├── label/
+│   ├── fakemusiccaps/
+│   └── sonics/
+│       ├── dev/
+│       ├── test/
+│       └── train/
 └── pretrained/
     ├── xlsr/
     └── mert/
