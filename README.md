@@ -169,13 +169,14 @@ python evaluate --p output_fakemusiccaps
 If you find this repository useful, please cite our paper:
 
 ```bibtex
-@inproceedings{
-han2026musicdet,
-title={Music{DET}: Zero-Shot {AI}-Generated Music Detection},
-author={Chaolei Han and Hongsong Wang and Jie Gui},
-booktitle={Forty-third International Conference on Machine Learning},
-year={2026}
+@inproceedings{han2026musicdet,
+  title={{M}usic{DET}: Zero-Shot {AI}-Generated Music Detection},
+  author={Chaolei Han and Hongsong Wang and Jie Gui},
+  booktitle={Proceedings of the 43rd International Conference on Machine Learning},
+  pages={40084--40097},
+  year={2026}
 }
+
 ```
 
 ## Acknowledgment
